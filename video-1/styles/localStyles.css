@@ -110,5 +110,61 @@ i {
     width: 19px;
 }
 .hero-wrapper {
-    background-color: #FFF;
+    background: url("../images/bg.jpg");
+    position:static;
+}
+.hero-wrapper h1{
+    font-size:35px;
+    font-family:open sans;
+    font-weight: 600; 
+    line-height: 43px;
+}
+.hero-wrapper p{
+    font-size: 20px;
+}
+
+.hero-wrapper a.ic-cta {
+    max-width: 500px;
+    font-size: 20px;
+    padding: 20px 10px;
+    margin: auto;
+    display: block;
+}
+.video-container {
+    height: 0; 
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; 
+}
+.video-container iframe, .video-container object, .video-container embed {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+#video-wrapper{
+    max-width: 700px;
+    display: block;
+    margin: 30px auto;
+}
+input.required {
+    background: rgb(253, 231, 231);
+}
+@media screen and (max-width:480px) {
+    .hero-wrapper h1 {
+        font-size: 20px;
+        line-height: 25px;
+    }
+    .hero-wrapper p {
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .hero-wrapper a.ic-cta {
+        font-size: 15px;
+    }
+    .modal-body {
+        padding: 15px 10px;
+    }
 }

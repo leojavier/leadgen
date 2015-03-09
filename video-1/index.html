@@ -20,20 +20,33 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <img src="images/logo.png" class="logo role-element leadstyle-image" id="ic-top-logo" style="max-width: 254px;">
+            <img src="images/logo.png" class="logo role-element leadstyle-image" id="ic-top-logo" style="max-width: 253px;">
         </div>
     </div>
 </div>
 
 <div class="hero-wrapper" id="ic-hero">
-    <img src="images/bg.jpg" class="background-image role-element leadstyle-background-image" id="ic-hero-background">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 id="ic-hero-head" class="role-element leadstyle-text"><span style="font-family:open sans;"><strong><span class="leadstyle-fontsized" style="font-size:48px;">This game-changing question could change your business destiny.</span></strong><br><span class="leadstyle-fontsized" style="font-size:26px;">Get a first-mover advantage over your competitors and attract more customers by asking one simple </span></span><span class="leadstyle-fontsized" style="font-size:26px;"><span style="font-family:open sans;">question.&#160;Watch this video to find out what it is&#8230; </span></span><br>&#160;</h1>
-                <div class="video role-element leadstyle-video" id="ic-hero-video" data-lp-responsive="height" data-lp-ratio-height="0.5625" data-lp-ratio-width="1.7777777777777777" style="max-width: 600px; width: 100%;"><iframe width="560" height="315" src="https://www.youtube.com/embed/GpHOoyLZXFs" frameborder="0" allowfullscreen></iframe></div>
-                <a href="javascript:void(0)" class="ic-cta role-element leadstyle-link" data-toggle="modal" data-target="#myModal">GET YOUR PROVEN BUSINESS MAP</a>
+                <h1 class="leadstyle-fontsized">
+                This game-changing question could change your business destiny.
+                </h1>
+
+                
+                <p class="leadstyle-fontsized">
+                Get a first-mover advantage over your competitors and attract
+                 more customers by asking one simple question.&#160;Watch this 
+                 video to find out what it is&#8230; 
+                 </p>
+                 <div id="video-wrapper">
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/GpHOoyLZXFs" frameborder="0" allowfullscreen></iframe>
+                    </div>
                 </div>
+                
+                <a href="javascript:void(0)" class="ic-cta role-element leadstyle-link" data-toggle="modal" data-target="#myModal">GET YOUR PROVEN BUSINESS MAP</a>
+            </div>
         </div>
     </div>
 </div>
@@ -42,22 +55,35 @@
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog  modal-lg">
                 <div class="modal-content">
-                  <div class="modal-header">
+                  <div class="modal-header"  style="border-bottom: none;">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <img id="leadpages-form-header-image" class="hidden-xs hidden-sm" src="images/leadbox_status_bar_gray3.gif">
-                    <h4 class="modal-title" id="myModalLabel">Almost there! Please complete this form and click the button below to gain instant access.</h4>
+                    <!-- <img id="leadpages-form-header-image" class="hidden-xs hidden-sm" src="images/leadbox_status_bar_gray3.gif"> -->
+                    <!--<h4 class="modal-title" id="myModalLabel">Almost there! Please complete this form and click the button below to gain instant access.</h4>-->
                   </div>
                   <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img class="hidden-xs" src="images/leadbox-image-placeholder3.png" alt=""></div>
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12"><h4 class="formTitle">Enter your email address below to reserve _______... it's 100% FREE!</h4>
-                        <form action="#">
-                            <input type="text" name="email" placeholder="Email">
-                            <input type="text" name="firstName" placeholder="First name">
-                            <input type="text" name="lastName" placeholder="Last name">
-                            <input type="text" name="phone" placeholder="Phone">
-                            <button id="leadpages-submit-button" type="submit">
-                            Free Instant Access »
+                        <form class='mktoForm' action='http://pages.tonyrobbins.com/index.php/leadCapture/save' method='post' id="mktoForm_1128" name="mktForm_1234">
+                            <input type="text" name="Email" data-type="email" placeholder="Email" autocomplete="off" >
+                            <input type="text" name="FirstName" data-type="string" placeholder="First name" autocomplete="off" >
+                            <input type="text" name="LastName" data-type="string" placeholder="Last name" autocomplete="off" >
+                            <input type="text" name="Phone" data-type="phone" placeholder="Phone (Optional)" autocomplete="off" >
+                            <input type="hidden" name="returnurl" value="http://businessleadership.tonyrobbins.com/gamechanger" />
+                            <input type="hidden" name="_marketo_comments" value="" />
+                            <input type="hidden" name="lpId" value="1242" />
+                            <input type="hidden" name="subId" value="34" />
+                            <input type="hidden" name="lpurl" value="http://pages.tonyrobbins.com/wheel-of-life-2015.html?cr={creative}&amp;kw={keyword}" />
+                            <input type="hidden" name="formid" value="1128" />
+                            <input type="hidden" name="ret" value="" />
+                            <input type="hidden" name="munchkinId" value="299-KII-331" />
+                            <input type="hidden" name="kw" value="" />
+                            <input type="hidden" name="cr" value="" />
+                            <input type="hidden" name="searchstr" value="" />
+                            <input type="hidden" name="_mkt_disp" value="return" />
+                            <input type="hidden" name="_mkt_trk" value="" />
+                            <button id="leadpages-submit-button" onclick="submitForm()" type="button">
+                            Get Free Updates
                             </button>
                         </form>
                         <div style="text-align: center"><i class="icon-lock"></i><i>We hate SPAM and promise to keep your email address safe. </i></div>
@@ -68,11 +94,58 @@
               </div>
             </div>
         <!-- Form -->
-    <link rel="stylesheet" href="style/style.css">
+        <!-- thanks modal -->
+            <div id="thanksModal" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog  modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header" style="border-bottom: none;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12"><h4 class="formTitle" style="font-size:2em; text-align:center">Thank you for sign up!</h4>
+                       <p style="text-align:center">
+                           We will stay in touch!
+                       </p>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <!-- thanks modal -->
     <link rel="stylesheet" href="styles/default-style.css">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/localStyles.css">
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/validator.js"></script>
+    <script>
+        $(function(){
+            if(localStorage.getItem('status')=="pending"){
+                 $('#thanksModal').modal('show');
+                localStorage.removeItem("status")
+            }
+        });
+         $('#mktoForm_1128').on('keypress', function (e) {
+            if(e.which == 13) {
+                submitForm();
+            }
+        });
+        function submitForm(){
+        $('input[data-type]').each(function(){
+            App.Validate($(this), $(this).val(), $(this).data('type'));
+        });
+                                   
+      
+        if($('input[data-type]').hasClass("required")){
+            return false;
+        }
+        else{
+             localStorage.setItem("status", "pending");
+            $('#mktoForm_1128').submit();
+        }
+    }
+    </script>
 </body>
 </html>

@@ -16,10 +16,7 @@
     
 </head>
 <body>
-     <img src="images/bg.jpg" class="bg-image role-element leadstyle-background-image" id="lp-bg-img">
-    <div class="vertical-center">
-        <div class="container">
-            <div class="row">
+
                 <div class="col-md-offset-3 col-md-6 opt-modal cta-container-center">
                     <h1 class="headline role-element leadstyle-text" id="lp-headline">96% of all businesses FAIL.</h1>
                     <p id="lp-subheadline" class="role-element leadstyle-text">
@@ -32,27 +29,38 @@
                     </p>
                     <a href="javascript:void(0)" class="btn btn-primary btn-lg btn-block cta-link role-element leadstyle-link" data-toggle="modal" data-target="#myModal">GET A PROVEN BUSINESS ROADMAP</a>
                 </div>
-            </div>
-        </div>
-        </div>
+
         <!-- Form -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog  modal-lg">
                 <div class="modal-content">
-                  <div class="modal-header">
+                  <div class="modal-header" style="border-bottom: none;">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">You’re just one step away! Please complete the form below for instant access.</h4>
+                    <!-- <h4 class="modal-title" id="myModalLabel">You’re just one step away! Please complete the form below for instant access.</h4>-->
                   </div>
                   <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img class="hidden-xs" src="images/leadbox-image-placeholder3.png" alt=""></div>
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12"><h4 class="formTitle">Enter Your Email For Developer Updates</h4>
-                        <form action="#">
-                            <input type="text" name="email" placeholder="Email">
-                            <input type="text" name="firstName" placeholder="First name">
-                            <input type="text" name="lastName" placeholder="Last name">
-                            <input type="text" name="phone" placeholder="Phone">
-                            <button id="leadpages-submit-button" type="submit">
+                        <form class='mktoForm' action='http://pages.tonyrobbins.com/index.php/leadCapture/save' method='post' id="mktoForm_1128" name="mktForm_1234">
+                            <input type="text" name="Email" data-type="email" placeholder="Email" autocomplete="off" >
+                            <input type="text" name="FirstName" data-type="string" placeholder="First name" autocomplete="off" >
+                            <input type="text" name="LastName" data-type="string" placeholder="Last name" autocomplete="off" >
+                            <input type="text" name="Phone" data-type="phone" placeholder="Phone (Optional)" autocomplete="off" >
+                            <input type="hidden" name="returnurl" value="http://businessleadership.tonyrobbins.com/success" />
+                            <input type="hidden" name="_marketo_comments" value="" />
+                            <input type="hidden" name="lpId" value="1242" />
+                            <input type="hidden" name="subId" value="34" />
+                            <input type="hidden" name="lpurl" value="http://pages.tonyrobbins.com/wheel-of-life-2015.html?cr={creative}&amp;kw={keyword}" />
+                            <input type="hidden" name="formid" value="1128" />
+                            <input type="hidden" name="ret" value="" />
+                            <input type="hidden" name="munchkinId" value="299-KII-331" />
+                            <input type="hidden" name="kw" value="" />
+                            <input type="hidden" name="cr" value="" />
+                            <input type="hidden" name="searchstr" value="" />
+                            <input type="hidden" name="_mkt_disp" value="return" />
+                            <input type="hidden" name="_mkt_trk" value="" />
+                            <button id="leadpages-submit-button" onclick="submitForm()" type="button">
                             Get Free Updates
                             </button>
                         </form>
@@ -64,15 +72,59 @@
               </div>
             </div>
         <!-- Form -->
+        <!-- thanks modal -->
+            <div id="thanksModal" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog  modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header" style="border-bottom: none;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12"><h4 class="formTitle" style="font-size:2em; text-align:center">Thank you for sign up!</h4>
+                       <p style="text-align:center">
+                           We will stay in touch!
+                       </p>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <!-- thanks modal -->
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/default-style.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/localStyles.css">
-    <script>window.LeadPageData = {};</script>
-    <script type="text/javascript" src="js/leadpage.js"></script>
-    <script src="js/html5shiv.js"></script>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/functions.js"></script>
+    <script src="js/validator.js"></script>
+    <script>
+        $(function(){
+            if(localStorage.getItem('status')=="pending"){
+                 $('#thanksModal').modal('show');
+                localStorage.removeItem("status")
+            }
+        });
+         $('#mktoForm_1128').on('keypress', function (e) {
+            if(e.which == 13) {
+                submitForm();
+            }
+        });
+        function submitForm(){
+        $('input[data-type]').each(function(){
+            App.Validate($(this), $(this).val(), $(this).data('type'));
+        });
+                                   
+      
+        if($('input[data-type]').hasClass("required")){
+            return false;
+        }
+        else{
+             localStorage.setItem("status", "pending");
+            $('#mktoForm_1128').submit();
+        }
+    }
+    </script>
 </body>
 </html>
