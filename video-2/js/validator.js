@@ -34,9 +34,13 @@ var App = {
                 }
                 break;
             case 'phone':
-                if (!data.match(App.Regex.phone)) {
-                    $(field).addClass('required');
-                } else {
+                 if(data.length > 0) {
+                    if (!data.match(App.Regex.phone)) {
+                        $(field).addClass('required');
+                    } else {
+                        $(field).removeClass('required');
+                    }
+                } else{
                     $(field).removeClass('required');
                 }
                 break;
